@@ -5,11 +5,12 @@
         <MainSource>MMVARI.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <ProjectVersion>14.6</ProjectVersion>
+        <ProjectVersion>20.1</ProjectVersion>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
+        <ProjectName Condition="'$(ProjectName)'==''">MMVARI</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -21,6 +22,11 @@
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
         <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64x' and '$(Base)'=='true') or '$(Base_Win64x)'!=''">
+        <Base_Win64x>true</Base_Win64x>
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
@@ -41,6 +47,12 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64x' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64x)'!=''">
+        <Cfg_1_Win64x>true</Cfg_1_Win64x>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -54,6 +66,12 @@
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
         <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64x' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64x)'!=''">
+        <Cfg_2_Win64x>true</Cfg_2_Win64x>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
@@ -77,10 +95,13 @@
         <AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
         <TASM_Debugging>None</TASM_Debugging>
         <TASM_AdditionalSwitches> /w2</TASM_AdditionalSwitches>
-        <OutputExt>exe</OutputExt>
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <DCC_AdditionalSwitches> -M</DCC_AdditionalSwitches>
         <ILINK_LibraryPath>..\vsais10;res;$(BDS)\lib\obj;$(BDS)\lib;$(BDS)\lib\psdk;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <SanitizedProjectName>MMVARI</SanitizedProjectName>
+        <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -90,10 +111,23 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>MMVARI_Icon.ico</Icon_MainIcon>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <OutputExt>exe</OutputExt>
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
         <Icon_MainIcon>MMVARI_Icon.ico</Icon_MainIcon>
+        <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
+        <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64x)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath);$(ILINK_LibraryPath)</ILINK_LibraryPath>
@@ -116,9 +150,15 @@
         <BCC_UserSuppliedOptions> -tWM -Tkh30000 -Vx -d -Ve -k</BCC_UserSuppliedOptions>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <BCC_Defines>_DEBUG;$(BCC_Defines);$(BCC_Defines)</BCC_Defines>
+        <BT_BuildType>Debug</BT_BuildType>
+        <Icon_MainIcon>MMVARI_Icon.ico</Icon_MainIcon>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <BCC_Defines>_DEBUG;$(BCC_Defines);$(BCC_Defines)</BCC_Defines>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64x)'!=''">
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <IntermediateOutputDir>Release_Build</IntermediateOutputDir>
@@ -128,9 +168,18 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <BCC_UserSuppliedOptions> -tWM -Tkh30000 -Vx -d -Ve -r</BCC_UserSuppliedOptions>
         <BCC_Defines>NDEBUG;$(BCC_Defines);$(BCC_Defines)</BCC_Defines>
+        <BCC_OptimizeMaximum>true</BCC_OptimizeMaximum>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>MMVARI_Icon.ico</Icon_MainIcon>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <BCC_Defines>NDEBUG;$(BCC_Defines);$(BCC_Defines)</BCC_Defines>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64x)'!=''">
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="ClockAdj.cpp">
@@ -348,34 +397,34 @@
         </CppCompile>
         <FormResources Include="Option.dfm"/>
         <FormResources Include="MmcgDlg.dfm"/>
-        <FormResources Include="Main.dfm"/>
         <FormResources Include="MacroKey.dfm"/>
+        <FormResources Include="Main.dfm"/>
         <FormResources Include="PlayDlg.dfm"/>
-        <FormResources Include="TrackDlg.dfm"/>
         <FormResources Include="TH5Len.dfm"/>
+        <FormResources Include="TrackDlg.dfm"/>
         <FormResources Include="VerDsp.dfm"/>
         <FormResources Include="Test.dfm"/>
-        <FormResources Include="RadioSet.dfm"/>
         <FormResources Include="Qsodlg.dfm"/>
-        <FormResources Include="RxView.dfm"/>
+        <FormResources Include="RadioSet.dfm"/>
         <FormResources Include="RMenuDlg.dfm"/>
+        <FormResources Include="RxView.dfm"/>
         <FormResources Include="MacEdit.dfm"/>
         <FormResources Include="ClockAdj.dfm"/>
         <FormResources Include="CodeVw.dfm"/>
         <FormResources Include="FEdit.dfm"/>
-        <FormResources Include="LogSet.dfm"/>
         <FormResources Include="LogList.dfm"/>
+        <FormResources Include="LogSet.dfm"/>
         <FormResources Include="FreqDisp.dfm"/>
         <FormResources Include="InputWin.dfm"/>
-        <BuildConfiguration Include="Release">
-            <Key>Cfg_2</Key>
-            <CfgParent>Base</CfgParent>
-        </BuildConfiguration>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
         </BuildConfiguration>
     </ItemGroup>
@@ -430,14 +479,20 @@
                     <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
                     <ProjectProperties Name="ManagePaths">True</ProjectProperties>
                     <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
                 <Source>
                     <Source Name="MainSource">MMVARI.cpp</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 サーバー パッケージ</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP サーバー パッケージ</Excluded_Packages>
+                </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Platforms>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
+                <Platform value="Win64x">False</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

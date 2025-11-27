@@ -32,7 +32,7 @@
 #include <Wingdi.h>	//ja7ude 0522
 
 #define VERBETA ""
-#define	VERNO	"0.45"
+#define	VERNO	"0.46"         //ja7ude Nov. 27, 2025
 #define	INI_SCHEMA	3
 
 //DEBUG should be FALSE, thanks to Mori-san JE3HHT
@@ -68,7 +68,7 @@ enum {
 
 #define	VERID	"beta ver "VERNO
 #define	VERTTL2	"MMVARI "VERID VERBETA
-#define	VERTTL  VERTTL2" (C) JE3HHT 2004-2010."
+#define	VERTTL  VERTTL2" (C) JE3HHT 2004-2025."     //ja7ude Nov. 27, 2025
 
 #define	WM_WAVE		WM_USER+400
 #define CM_CRADIO   WM_USER+400
