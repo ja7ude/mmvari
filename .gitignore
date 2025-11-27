@@ -11,7 +11,6 @@
 *.lai
 *.la
 *.a
-/JA7UDE.MDT
-/Mmvari.ini
-/MMVARI.tds
-/MMVARI.map
+Mmvari.ini
+MMVARI.tds
+MMVARI.map

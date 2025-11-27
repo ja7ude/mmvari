@@ -1,4 +1,4 @@
-mmvari
+mmvari 2025 build (version 0.46)
 ======
 
-MMVARI LGPL source repository
+Forked from n5ac/mmtty, modified to compile with Embarcadero® C++Builder 12 community edition.
